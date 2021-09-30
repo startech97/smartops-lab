@@ -1,0 +1,23 @@
+{{!-- <div class="h"><h1>smartops</h1></div> --}}
+<div class="auth" style="margin-top:20vh">
+  <div class="row">
+    <div id="login" class="col s12 offset-s0 m6 offset-m3 l4 offset-l4 xl4 offset-xl4">
+      {{#if error}}
+      <p class="alert">{{error}}</p>
+      {{/if}}
+      <form action="/auth/login" method="POST">
+        <div class="input-field">
+          <input  class="center" id="login" name="login" type="text" class="validate"  required>
+          <label for="login" class="center">Логин</label>
+          <span class="helper-text" data-error="Введите логин" style="color:#2e7d32"></span>
+        </div>
+        <div class="input-field">
+          <input class="center" id="password" name="password" type="password" class="validate"  required>
+          <label class="center" for="password">Пароль</label>
+          <span class="helper-text" data-error="Введите пароль" style="color:#2e7d32"></span>
+        </div>
+        <button class="btn btn-primary  waves-effect waves-light purple darken-3" type="submit" style="width:100%; border-radius: 10px;">Войти</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+
+}
+body{
+    padding:0;
+    margin:0;
+} 
+.nav-wrapper{
+    padding: 0 2rem;
+}
+.tabs {
+    margin-top: 40px;
+    position: fixed;
+    z-index: 20;
+}
+.ou{
+    width: 30vw;height: 10vh;
+}
+.box{
+    margin-top: 132px;
+}
+.row .col {
+    padding: 0;
+}
+
+.background {
+    background-color:#8eb6ca;
+   margin-left: 5px;
+}
+#tabs-swipe-demo {
+    margin-left: 5px;
+}
+#tabs-swipe-demo .tab a{
+    color:#000;
+}
+#tabs-swipe-demo .tab a:hover {
+    background-color:#b8d4e2;
+    color:#000;
+}
+#tabs-swipe-demo .tab a.active {
+    background-color:#8eb6ca;
+    color:#000;
+} 
+#tabs-swipe-demo .indicator {
+    background-color:#4f626b;
+}
+
+.sidenav {
+    margin-left: 5px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(126, 153, 165);
+    padding: 5px;
+    padding-left: 5px;
+    border-radius: 5px
+}
+
+
+.label {
+    display: flex;
+    width: 135px;
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: rgb(106, 134, 141);
+    cursor: pointer;
+    font-size: 15px;
+    color: white
+}
+.analitics-done {
+    margin-left: 20px;
+}
+.user-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.icons-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+.partners-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+.rec-wrap{
+    margin-left: 20px;
+}
+.partner{
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(126, 153, 165);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white
+
+}
+.partner button {
+    width: 150px;
+    height: 20px;
+    background-color:yellow;
+    border-radius: 5px;
+    color: rgb(78, 78, 78);
+    cursor:pointer;
+    line-height: 0;
+
+
+}
+.right-block, .left-block {
+    display: flex;
+    justify-content: space-around;
+}
+.img-wrap {
+    width: 40vw;
+}
+.img-wrap img {
+    width: 100%;
+}
+.info {
+    display: flex;
+}
+.card-panel-main_1 {
+    height: 500px;
+  }
+
+/* new */
+nav ul a {
+    color: black
+}
+nav .nav-wrapper a {
+    color:black
+}
+.nav-wrapper .input-field input[type=search]{
+    height: auto;
+}
+
+.employee-collection .collection-item a i {
+    margin-right: 10px;
+}
+.add-employee {
+    cursor: pointer;
+    color: grey;
+}
+.add-employee:hover {
+    background-color: rgb(224, 224, 224);
+    border-radius: 100%;
+}

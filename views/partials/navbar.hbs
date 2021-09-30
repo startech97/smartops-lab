@@ -1,0 +1,101 @@
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">Учетная запись</a></li>
+  <li><a href="#!">Лицензия</a></li>
+  <li><a href="#!">Тема</a></li>
+  <li class="divider"></li>
+  <li><a href="/auth/logout">Выйти</a></li>
+</ul>
+<nav class ="z-depth-0">
+    <div class="nav-wrapper white  ">
+      <a href="#!" class="brand-logo">Smartops</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon " for="search"><i class="material-icons black-text">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form></li>
+       
+        {{#if isAuth}}
+        {{#if isAdminStart}}
+          <li><a href="/">Главная</a></li>
+           <li><a href="/auth/logout">Выйти</a></li>
+        {{else}}
+          <li><a href="/report/department">Тесты</a></li>
+          {{#if isReport}}
+              <li class="active"><a href="/report/department">Отчеты</a></li>
+          {{else}}
+                  <li><a href="/report/department">Отчеты</a></li>
+          {{/if}}
+          
+          {{#if isDocs}}
+              <li class="active"><a href="/docs">Помощь</a></li>
+          {{else}}
+              <li><a href="/docs">Помощь</a></li>
+          {{/if}}
+                <li><a href=""><i class="material-icons">notifications_none</i></a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">settings</i></a></li>
+        {{/if}}
+          
+          {{else}}
+         {{#if isLogin}}
+        <li><a href="/">Главная</a></li>
+        {{else}}
+         <li><a href="/auth/login" class="waves-light btn white-text">Войти</a></li>
+        {{/if}}
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+  </ul>
+          
+
+{{!-- <nav class='white' style="padding: 0 10px;color:grey">
+    <div class="nav-wrapper z-depth-0 " >
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger left"><i class="material-icons">functions</i></a>
+        <div class="logo-wrap">
+            <a href="/" class="brand-logo">
+            <div class="brand"><span>s</span>smartops</div>
+        </a>
+        </div>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {{#if isHome}}
+                <li class="active"><a href="/">Главная</a></li>
+            {{else}}
+                <li><a href="/">Главная</a></li>
+            {{/if}}
+            {{#if isAuth}}
+                    {{#if isReport}}
+                    <li class="active"><a href="/report/department">Отчеты</a></li>
+                    {{else}}
+                        <li><a href="/report/department">Отчеты</a></li>
+                    {{/if}}
+                
+                {{#if isDocs}}
+                    <li class="active"><a href="/docs">Docs</a></li>
+                {{else}}
+                    <li><a href="/docs">Docs</a></li>
+                {{/if}}
+                    <li><a href="/auth/logout">Выйти</a></li>
+            {{else}}
+                {{#if isLogin}}
+                    <li class="active">
+                        <a href="/auth/login">Войти</a>
+
+                    </li>
+                {{else}}
+                    <li><a href="/auth/login">Войти</a></li>
+                {{/if}}
+            {{/if}}
+        </ul>
+    </div>
+</nav> --}}
+  
