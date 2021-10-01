@@ -1,0 +1,43 @@
+<h3 class="center">{{name.name}} {{name.surname}}</h3>
+<p class="center">Вам предстоит пройти тестирование [Инструкция]</p>
+<div class="row">
+    <div class="col s6 offset-s3">
+        <form action="/user/{{name.id}}/{{test_id}}"  method="POST">
+            <div class="section">
+                {{#each data}}
+                        <div class="card blue-grey darken-1 white-text">
+                            <div class="card-content">
+                                <p>{{number}}. {{question}}</p>
+                            </div>
+                            <div class="card-action">
+                                <label>
+                                    <input name="{{number}}" value="yes" type="radio" required/>
+                                    <span class="white-text">ДА</span>
+                                </label>
+                                <label>
+                                    <input name="{{number}}" type="radio" value="no" />
+                                    <span class="white-text">НЕТ</span>
+                                </label>
+                            </div>
+                        </div>
+                {{/each}}
+                    <button class="purple btn-small">готово</button>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+{{!-- 
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons">mode_edit</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+  </ul>
+</div> --}}
+      

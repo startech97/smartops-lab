@@ -20,8 +20,8 @@ exports.getAdminPage = async (req,res) => {
         })
         item.user = a
     })
-    console.log(JSON.stringify(departments, null, 2))
     res.render('admin/admin', {
+        isAdmin: true,
        title:'Личный кабинет',
        data: departments
 
@@ -37,7 +37,6 @@ exports.fetchDepartments = async(req,res) => {
    const data = req.body
    let id
    let department
-   console.log('record')
    data.forEach((item,i) => {
        if(i == 0) id = item.id
        if(item.name == 'department') {
@@ -66,10 +65,7 @@ exports.fetchDepartments = async(req,res) => {
         owner: req.session.userId
     })
    }
-   console.log(result)
-   console.log('record')
    const record = async () => {
-       console.log('record')
     result.forEach((i)=> {
         sequelize.query("insert into [dbo].[Employees](name,surname,owner,department) values ( :name,:surname,:owner,:department)" ,{
             replacements: {name: i.name,surname: i.surname, owner:i.owner, department: i.department},
@@ -82,7 +78,6 @@ exports.fetchDepartments = async(req,res) => {
         type: QueryTypes.SELECT,
         logging: false
     });
-    console.log('апись')
    }
 
    record()
@@ -96,5 +91,27 @@ exports.getEmployeesPage = async (req,res) => {
     });
     res.render('admin/employee',{
         data: data[0]
+    })
+}
+exports.getTestsPage = async (req,res) => {
+    const data = await sequelize.query("select distinct [name], [code] from [dbo].[Questions]" ,{
+        type: QueryTypes.SELECT,
+        logging: false
+    });
+    res.render('admin/tests',{
+        isTests: true,
+        data
+    })
+}
+exports.getTestPage = async (req,res) => {
+    const data = await sequelize.query("select * from [dbo].[Questions]" ,{
+        type: QueryTypes.SELECT,
+        logging: false
+    });
+    res.render('admin/test',{
+        isTests: true,
+        owner: req.session.userId,
+        code: req.params.code,
+        data
     })
 }

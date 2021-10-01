@@ -1,4 +1,4 @@
-
+new ClipboardJS('.create-link');
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);

@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-
 }
 body{
     padding:0;
@@ -145,4 +144,7 @@ nav .nav-wrapper a {
 .add-employee:hover {
     background-color: rgb(224, 224, 224);
     border-radius: 100%;
+}
+.promo {
+    padding: 50px 0;
 }

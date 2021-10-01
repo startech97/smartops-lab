@@ -23,7 +23,17 @@
           <li><a href="/">Главная</a></li>
            <li><a href="/auth/logout">Выйти</a></li>
         {{else}}
-          <li><a href="/report/department">Тесты</a></li>
+          
+          {{#if isAdmin}}
+              <li class="active"><a href="/admin">Панель</a></li>
+          {{else}}
+                  <li><a href="/admin">Панель</a></li>
+          {{/if}}
+          {{#if isTests}}
+              <li class="active"><a href="/admin/tests">Тесты</a></li>
+          {{else}}
+                  <li><a href="/admin/tests">Тесты</a></li>
+          {{/if}}
           {{#if isReport}}
               <li class="active"><a href="/report/department">Отчеты</a></li>
           {{else}}
@@ -43,7 +53,7 @@
          {{#if isLogin}}
         <li><a href="/">Главная</a></li>
         {{else}}
-         <li><a href="/auth/login" class="waves-light btn white-text">Войти</a></li>
+         <li><a href="/auth/login" class="waves-light btn purple white-text">Войти</a></li>
         {{/if}}
         {{/if}}
       </ul>
