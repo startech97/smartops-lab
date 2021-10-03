@@ -13,7 +13,6 @@ exports.uploadFile = (req,res) => {
         if(!filedata)
             res.send("Ошибка при загрузке файла");
         else
-        console.log('yes')
             res.redirect('/report');
     }catch(e) {
         console.log(e)

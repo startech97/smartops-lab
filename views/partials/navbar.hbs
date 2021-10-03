@@ -25,19 +25,14 @@
         {{else}}
           
           {{#if isAdmin}}
-              <li class="active"><a href="/admin">Панель</a></li>
+              <li class="active"><a href="/admin">Сотрудники</a></li>
           {{else}}
-                  <li><a href="/admin">Панель</a></li>
+                  <li><a href="/admin">Сотрудники</a></li>
           {{/if}}
           {{#if isTests}}
               <li class="active"><a href="/admin/tests">Тесты</a></li>
           {{else}}
                   <li><a href="/admin/tests">Тесты</a></li>
-          {{/if}}
-          {{#if isReport}}
-              <li class="active"><a href="/report/department">Отчеты</a></li>
-          {{else}}
-                  <li><a href="/report/department">Отчеты</a></li>
           {{/if}}
           
           {{#if isDocs}}
@@ -66,46 +61,3 @@
     <li><a href="collapsible.html">Javascript</a></li>
     <li><a href="mobile.html">Mobile</a></li>
   </ul>
-          
-
-{{!-- <nav class='white' style="padding: 0 10px;color:grey">
-    <div class="nav-wrapper z-depth-0 " >
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger left"><i class="material-icons">functions</i></a>
-        <div class="logo-wrap">
-            <a href="/" class="brand-logo">
-            <div class="brand"><span>s</span>smartops</div>
-        </a>
-        </div>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            {{#if isHome}}
-                <li class="active"><a href="/">Главная</a></li>
-            {{else}}
-                <li><a href="/">Главная</a></li>
-            {{/if}}
-            {{#if isAuth}}
-                    {{#if isReport}}
-                    <li class="active"><a href="/report/department">Отчеты</a></li>
-                    {{else}}
-                        <li><a href="/report/department">Отчеты</a></li>
-                    {{/if}}
-                
-                {{#if isDocs}}
-                    <li class="active"><a href="/docs">Docs</a></li>
-                {{else}}
-                    <li><a href="/docs">Docs</a></li>
-                {{/if}}
-                    <li><a href="/auth/logout">Выйти</a></li>
-            {{else}}
-                {{#if isLogin}}
-                    <li class="active">
-                        <a href="/auth/login">Войти</a>
-
-                    </li>
-                {{else}}
-                    <li><a href="/auth/login">Войти</a></li>
-                {{/if}}
-            {{/if}}
-        </ul>
-    </div>
-</nav> --}}
-  

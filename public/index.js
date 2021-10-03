@@ -1,4 +1,25 @@
-new ClipboardJS('.create-link');
+window.onload = function() {
+  var links = document.querySelectorAll('.link-user')
+  const us = new ClipboardJS(links)
+  us.on('success', function (e) {
+    const el = document.createElement('textarea');
+    el.classList.add('hidden')
+    el.value = e.text;
+    const str =  'modal-' + e.trigger.classList[2].slice(4)
+    const element = document.getElementById(`${str}`)
+    element.appendChild(el);
+    el.select();
+    document.execCommand('Copy');
+    element.removeChild(el);
+  });
+  us.on('error', function (e) {
+  });
+}
+const add = new ClipboardJS('.create-link');
+add.on('success', function (e) {
+});
+add.on('error', function (e) {
+});
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
@@ -8,10 +29,22 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Collapsible.init(elems);
   });
   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.dropdown-trigger');
     var instances = M.Dropdown.init(elems,{constrainWidth: false});
   });
-
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems);
+  });
   
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.fixed-action-btn');
@@ -36,7 +69,6 @@ for(let i =0; i< addPersonBtn.length; i++){
     addPersonBtn[i].addEventListener('click', (e)=> {
         const cardPanels = document.querySelectorAll('.card-panel')
         for(let l = 0; l < cardPanels.length; l++){
-            console.log(cardPanels[l])
             if(e.target.id + '-card' == cardPanels[l].id){
                 const currentCard  = document.getElementById(cardPanels[l].id)
                 const personField = currentCard.querySelector('.person')
@@ -115,12 +147,10 @@ addGroup.addEventListener('click',()=> {
 
 const compliteBtn = document.querySelector('.complite')
 compliteBtn.addEventListener('click',async ()=> {
-  console.log('click')
     const section = document.querySelector('.set-department')
     const inputs = section.getElementsByTagName('input')
     const data = []
     for(let i=0; i <inputs.length; i++) {
-        console.log({value:inputs[i].value,id: inputs[i].id, name: inputs[i].name})
         data.push({value:inputs[i].value,id: inputs[i].id, name: inputs[i].name})
     }
    
@@ -133,21 +163,6 @@ compliteBtn.addEventListener('click',async ()=> {
       });
 })
 
-
-
-    // addGroup.addEventListener('click', ()=> {
-    // if(input.value) {
-    //     console.log('yes')
-    //     const card = document.createElement('div')
-    //     card.classList.add('card-panel')
-    //     card.classList.add('white')
-    //     card.innerHTML = `
-    //     `
-    //     section.appendChild(card)
-    // }else{
-    //     console.log('no')
-    // }
-// })
 
 
 

@@ -6,6 +6,10 @@ exports.getAdminPage = async (req,res) => {
         type: QueryTypes.SELECT,
         logging: false
     });
+    const tests = await sequelize.query("select distinct [name], [code] from [dbo].[Questions]" ,{
+        type: QueryTypes.SELECT,
+        logging: false
+    });
     const departments = await sequelize.query("select distinct [department] from [dbo].[Employees] where owner = :owner" ,{
         replacements: { owner: req.session.userId },
         type: QueryTypes.SELECT,
@@ -23,7 +27,9 @@ exports.getAdminPage = async (req,res) => {
     res.render('admin/admin', {
         isAdmin: true,
        title:'Личный кабинет',
-       data: departments
+       data: departments,
+       tests,
+       owner: req.session.userId
 
    })
 }
@@ -104,14 +110,34 @@ exports.getTestsPage = async (req,res) => {
     })
 }
 exports.getTestPage = async (req,res) => {
-    const data = await sequelize.query("select * from [dbo].[Questions]" ,{
+    const question = await sequelize.query("select * from [dbo].[Questions]" ,{
         type: QueryTypes.SELECT,
         logging: false
     });
+    const data = await sequelize.query("select * from [dbo].[Employees] where owner = :owner" ,{
+        replacements: { owner: req.session.userId },
+        type: QueryTypes.SELECT,
+        logging: false
+    });
+    const departments = await sequelize.query("select distinct [department] from [dbo].[Employees] where owner = :owner" ,{
+        replacements: { owner: req.session.userId },
+        type: QueryTypes.SELECT,
+        logging: false
+    });
+    departments.forEach(item => {
+        const a = []
+        data.forEach(user => {
+            if(item.department == user.department){
+                a.push(user)
+            }
+        })
+        item.user = a
+    })
     res.render('admin/test',{
         isTests: true,
         owner: req.session.userId,
         code: req.params.code,
-        data
+        question,
+        departments
     })
 }

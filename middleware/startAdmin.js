@@ -8,7 +8,6 @@ module.exports = async function(req,res,next) {
           type: QueryTypes.SELECT,
           logging: false
      })
-     console.log(data)
      if(!data[0].started) {
           return res.redirect(`/admin/start/${req.session.user.id}`)
      }

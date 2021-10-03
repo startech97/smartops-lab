@@ -19,15 +19,16 @@ exports.getTestPage = async(req,res) => {
 }
 
 exports.recordTest = async(req,res) => {
+    const date = new Date(Date.now())
     for(let key in req.body) {
-        console.log(key)
-        await sequelize.query(`insert into [dbo].[Answers] (code_employee, code_test,code_question, value)
-                                values (:code_employee, :code_test , :code_question, :value)` ,{
+        await sequelize.query(`insert into [dbo].[Answers] (code_employee, code_test,code_question, value, date)
+                                values (:code_employee, :code_test , :code_question, :value, :date)` ,{
         replacements: { 
             code_employee: req.params.user_id,
             code_test: req.params.test_id,
             code_question: key,
-            value: req.body[key]
+            value: req.body[key],
+            date
         },
         type: QueryTypes.POST,
         logging: false

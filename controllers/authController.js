@@ -28,7 +28,6 @@ exports.login = async (req,res) => {
         if(candidate) {
             const areSame = await password === candidate.password
             if(areSame) {
-                console.log(candidate)
                 req.session.user = candidate
                 req.session.userId = candidate.id
                 req.session.isAuthenticated = true
