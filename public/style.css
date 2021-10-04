@@ -52,3 +52,12 @@ nav .nav-wrapper a {
     width: 50px;
     background-color: rgba(182, 181, 181, .5);
 }
+.admin-wrap {
+    margin-top: 4rem;
+}
+nav i.material-icons {
+
+    font-size: 33px;
+    height: 56px;
+    line-height: 56px;
+}

@@ -8,7 +8,7 @@
 <nav class ="z-depth-0">
     <div class="nav-wrapper white  ">
       <a href="#!" class="brand-logo">Smartops</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons menu-phone">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><form>
         <div class="input-field">
@@ -23,7 +23,6 @@
           <li><a href="/">Главная</a></li>
            <li><a href="/auth/logout">Выйти</a></li>
         {{else}}
-          
           {{#if isAdmin}}
               <li class="active"><a href="/admin">Сотрудники</a></li>
           {{else}}
@@ -56,8 +55,36 @@
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
+     {{#if isAuth}}
+        {{#if isAdminStart}}
+          <li><a href="/">Главная</a></li>
+           <li><a href="/auth/logout">Выйти</a></li>
+        {{else}}
+          
+          {{#if isAdmin}}
+              <li class="active"><a href="/admin">Сотрудники</a></li>
+          {{else}}
+                  <li><a href="/admin">Сотрудники</a></li>
+          {{/if}}
+          {{#if isTests}}
+              <li class="active"><a href="/admin/tests">Тесты</a></li>
+          {{else}}
+                  <li><a href="/admin/tests">Тесты</a></li>
+          {{/if}}
+          
+          {{#if isDocs}}
+              <li class="active"><a href="/docs">Помощь</a></li>
+          {{else}}
+              <li><a href="/docs">Помощь</a></li>
+          {{/if}}
+            
+        {{/if}}
+          
+          {{else}}
+         {{#if isLogin}}
+        <li><a href="/">Главная</a></li>
+        {{else}}
+         <li><a href="/auth/login" class="waves-light btn purple white-text">Войти</a></li>
+        {{/if}}
+        {{/if}}
   </ul>

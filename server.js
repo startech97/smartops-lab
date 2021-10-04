@@ -6,7 +6,7 @@ async function start() {
         await sequelize.sync()
         app.listen(
             process.env.SERVER_PORT,
-            process.env.HOST_IP,
+            process.env.HOST,
             () => {
             console.log(`Server is running on PORT: ${process.env.SERVER_PORT}\n`)
             console.log("      Press CTRL-C to stop\n");
